@@ -124,8 +124,10 @@ class _LoginForm extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             child: GestureDetector(
               onTap: () => {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RegistroScreen()))
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegistroScreen()))
               },
               child: const Text(
                 "¿No tienes una cuenta? Registrate",

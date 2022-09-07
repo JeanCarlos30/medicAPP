@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RegistroScreen extends StatefulWidget {
+  const RegistroScreen({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _RegistroScreenState createState() => _RegistroScreenState();
 }
 
@@ -14,81 +17,81 @@ class _RegistroScreenState extends State<RegistroScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Flutter Stepper Demo'),
+        title: const Text('Flutter Stepper Demo'),
         centerTitle: true,
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-              child: Stepper(
-                type: stepperType,
-                physics: ScrollPhysics(),
-                currentStep: _currentStep,
-                onStepTapped: (step) => tapped(step),
-                onStepContinue: continued,
-                onStepCancel: cancel,
-                steps: <Step>[
-                  Step(
-                    title: new Text('Account'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration:
-                              InputDecoration(labelText: 'Email Address'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Password'),
-                        ),
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 0
-                        ? StepState.complete
-                        : StepState.disabled,
+      body: Column(
+        children: [
+          Expanded(
+            child: Stepper(
+              type: stepperType,
+              physics: const ScrollPhysics(),
+              currentStep: _currentStep,
+              onStepTapped: (step) => tapped(step),
+              onStepContinue: continued,
+              onStepCancel: cancel,
+              steps: <Step>[
+                Step(
+                  title: const Text('Account'),
+                  content: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Email Address'),
+                      ),
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Password'),
+                      ),
+                    ],
                   ),
-                  Step(
-                    title: new Text('Address'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration:
-                              InputDecoration(labelText: 'Home Address'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Postcode'),
-                        ),
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 1
-                        ? StepState.complete
-                        : StepState.disabled,
+                  isActive: _currentStep >= 0,
+                  state: _currentStep >= 0
+                      ? StepState.complete
+                      : StepState.disabled,
+                ),
+                Step(
+                  title: const Text('Address'),
+                  content: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Home Address'),
+                      ),
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Postcode'),
+                      ),
+                    ],
                   ),
-                  Step(
-                    title: new Text('Mobile Number'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration:
-                              InputDecoration(labelText: 'Mobile Number'),
-                        ),
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 2
-                        ? StepState.complete
-                        : StepState.disabled,
+                  isActive: _currentStep >= 0,
+                  state: _currentStep >= 1
+                      ? StepState.complete
+                      : StepState.disabled,
+                ),
+                Step(
+                  title: const Text('Mobile Number'),
+                  content: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Mobile Number'),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                  isActive: _currentStep >= 0,
+                  state: _currentStep >= 2
+                      ? StepState.complete
+                      : StepState.disabled,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.list),
         onPressed: switchStepsType,
+        child: const Icon(Icons.list),
       ),
     );
   }
